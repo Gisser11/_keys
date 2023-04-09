@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1>Добавление  | Изменение | Удаление ролей</h1>
+    <h3>(admin, user)</h3>
+    <form method="post">
+        <b>Роль: </b> <br />
+        <input type="text" name="RoleName" />
+        <button type="text" name="RoleName" class="btn btn-lg btn-primary" asp-page-handler="NewRole">Добавить новую роль</button>
+        <button type="text" name="RoleName" class="btn btn-lg btn-primary" asp-page-handler="AddRole">Добавить роль пользователю</button>
+
+    </form>
+</div>

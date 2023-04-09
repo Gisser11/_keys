@@ -1,0 +1,33 @@
+﻿@page
+@model _keys.Pages.EditAndDelete.EditModel
+@{
+}
+<br />
+<h1>Форма редактирования</h1>
+<br />
+<h3>Для редактирования измените параметр форму: </h3>
+
+<form method="post">
+	<input type="hidden" name="id" value="@Model.userdb.id" />
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Uniq. Name</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="name" value="@Model.userdb.name" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Ваша почта</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="email" value="@Model.userdb.email" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Phone Number</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="phone" value="@Model.userdb.phone" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<button type="submit" class="btn btn-primary">Подтвердить</button>
+	</div>
+</form>
