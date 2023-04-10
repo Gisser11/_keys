@@ -6,19 +6,21 @@ using static _keys.Pages.editingBD.IndexModel;
 
 namespace _keys.Pages.editingBD
 {
-    [Authorize(Roles="Admin, user")]
+    [Authorize(Roles="123")]
     public class IndexModel : PageModel
     {
         public List<usersDB> users_list = new List<usersDB>();
         public void OnGet()
         {
+            string sql = "IF OBJECT_ID('_userForm', 'U') IS NULL " +
+                         "CREATE TABLE _userForm (id INT PRIMARY KEY IDENTITY, name VARCHAR(50), email VARCHAR(50), phone VARCHAR(50))";
             try
             {
                 string connectionString = "Server=DESKTOP-HD1U37A\\SQLEXPRESS;Database=WebApplication1;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string sql = "SELECT * FROM _userForm";
+                    sql = "SELECT * FROM _userForm";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())

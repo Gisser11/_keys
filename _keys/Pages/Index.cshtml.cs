@@ -51,5 +51,15 @@ namespace _keys.Pages
                 await userManager.AddToRoleAsync(usr, roleName);
             }
         }
+
+        public async Task OnPostRemoveRole(RoleModel model)
+        {
+            string roleName = model.RoleName.Trim();
+            if (!string.IsNullOrEmpty(roleName))
+            {
+                var usr = await userManager.GetUserAsync(this.User);
+                await userManager.RemoveFromRoleAsync(usr, roleName);
+            }
+        }
     }
 }
